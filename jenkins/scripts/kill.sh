@@ -5,4 +5,8 @@ echo '(written to ".pidfile"), all of which were conducted when "deliver.sh"'
 echo 'was executed.'
 set -x
 kill -9 $(ps -ef | grep $(cat .pidfile))
+if [(ps -o pid |grep $(cat .pidfile))!=""];then
+    echo "you have old progress need to kill"
+    kill $(cat .pidfile)
+fi
 
