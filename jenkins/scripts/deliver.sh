@@ -18,7 +18,7 @@ echo 'is followed by another command that retrieves the process ID (PID) value'
 echo 'of the previously run process (i.e. "npm start") and writes this value to'
 echo 'the file ".pidfile".'
 set -x
-BUILD_ID=dontKillMe nohup npm start >/var/app/nohup.out 2>&1 &
+npm start
 sleep 1
 echo $! > .pidfile
 set +x
